@@ -36,7 +36,7 @@ public class ApplicationUserController {
 
     @GetMapping("/login")
     public String showLoginPage(){
-        return "index";
+        return "sign-up";
     }
 
 }

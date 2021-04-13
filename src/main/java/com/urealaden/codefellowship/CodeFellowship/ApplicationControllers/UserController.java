@@ -16,7 +16,7 @@ public class UserController {
 
     @GetMapping("/")
     public String displayHomePage( Model m){
-        return "sign-up";
+        return "index";
     }
 
     @GetMapping("/coders")
