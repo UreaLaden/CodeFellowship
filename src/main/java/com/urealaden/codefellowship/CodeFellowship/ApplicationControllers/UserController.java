@@ -16,14 +16,19 @@ public class UserController {
 
 
     @GetMapping("/")
-    public String displayHomePage( Model m){
+    public String displayHomePage( Model m, Principal p){
+        System.out.println("p = " + p);
+        if(p != null){
+            System.out.println("p.getName() = " + p.getName());
+            m.addAttribute("user",p.getName());
+        }
         return "index";
     }
 
     @GetMapping("/coders")
     public String showUsers(Principal p, Model m, String username, HttpServletRequest request){
 //        System.out.println("p.getName() = " + p.getName());
-
+        System.out.println("p = " + p);
         m.addAttribute("user",request.getUserPrincipal());
         return "coders";
     }

@@ -28,16 +28,17 @@ public class ApplicationUserController {
         ApplicationUser appUser = new ApplicationUser();
         System.out.println("password = " + password);
         System.out.println("username = " + username);
+
         appUser.setPassword(password);
         appUser.setUsername(username);
         appUser.setBio("");
         appUser.setFirstName("");
         appUser.setLastName("");
         appUser.setDateOfBirth("");
-        applicationUserRepository.save(appUser);
-        model.addAttribute("user",principal);
 
-        return new RedirectView("/login");
+        applicationUserRepository.save(appUser);
+
+        return new RedirectView("/coders");
     }
 
     @GetMapping("/login")

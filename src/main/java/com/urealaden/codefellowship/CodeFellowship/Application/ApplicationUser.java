@@ -13,12 +13,12 @@ public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     long id;
-    String username;
-    String password;
-    String firstName;
-    String lastName;
-    String dateOfBirth;
-    String bio;
+    public String username;
+    public String password;
+    public String firstName;
+    public String lastName;
+    public String dateOfBirth;
+    public String bio;
 
     @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL)
     public List<Post> post = new ArrayList<>();
