@@ -3,11 +3,10 @@ package com.urealaden.codefellowship.CodeFellowship.Application;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -21,7 +20,22 @@ public class ApplicationUser implements UserDetails {
     String dateOfBirth;
     String bio;
 
+    @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL)
+    public List<Post> post = new ArrayList<>();
+
     public ApplicationUser(){}
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public List<Post> getPost() {
+        return post;
+    }
+
+    public void setPost(List<Post> post) {
+        this.post = post;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

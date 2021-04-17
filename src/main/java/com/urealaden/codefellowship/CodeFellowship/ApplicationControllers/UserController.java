@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 @Controller
@@ -20,10 +21,10 @@ public class UserController {
     }
 
     @GetMapping("/coders")
-    public String showUsers(Principal p, Model m){
+    public String showUsers(Principal p, Model m, String username, HttpServletRequest request){
 //        System.out.println("p.getName() = " + p.getName());
 
-//        m.addAttribute("user",p.getName());
+        m.addAttribute("user",request.getUserPrincipal());
         return "coders";
     }
 
