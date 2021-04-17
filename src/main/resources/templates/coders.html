@@ -13,10 +13,28 @@
 
 <section class="section">
     <div class="section__container">
-        <div class="section__main">
-            <h1 class="heading">You're logged in! I think...</h1>
-            <a  type="submit" href="/logout" class="btn btn--blue">Logout</a>
+        <div class="section">
+            <h1 th:text="'Welcome ' + ${user} " class="heading">This should be dynamic text</h1>
         </div>
+        <form action="" class="form" method="post">
+            <div class="form__heading">
+                <h1 class="heading">Create a Post</h1>
+            </div>
+            <div class="form__group">
+                <input type="text" class="form__input" placeholder="body" id="body"
+                       name="body"
+                required>
+                <label for="body" class="form__label">Post body</label>
+                <input type="text" hidden class="form__input" th:value="${user}">
+            </div>
+
+            <div class="form__group">
+                <a class="btn btn--blue" href="/" type="submit">Submit</a>
+                <a  type="submit" href="/logout" class="btn btn--blue">Logout</a>
+            </div>
+        </form>
+    </div>
+
     </div>
 
 </section>
